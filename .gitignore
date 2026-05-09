@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+
+farm.db
+
+reports/*.txt
