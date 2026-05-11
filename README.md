@@ -196,24 +196,6 @@ farm.db
 
 The data is persisted, so restarting the API does not delete existing cows, sensors or measurements.
 
-To recreate the database from scratch on Linux/macOS:
-
-```bash
-rm farm.db
-python -m app.init_db
-uvicorn app.main:app --reload
-python -m app.simulate_sensors
-```
-
-To recreate the database from scratch on PowerShell:
-
-```powershell
-Remove-Item farm.db
-python -m app.init_db
-uvicorn app.main:app --reload
-python -m app.simulate_sensors
-```
-
 ## API endpoints
 
 ### 1. Create a cow manually
@@ -481,7 +463,6 @@ For a production system or a larger-scale scenario, such as handling many farms 
 - structured logging;
 - monitoring and alerting;
 - automated tests in the deployment pipeline;
-- containerization with Docker;
 - scheduled daily reporting with cron, Airflow, Azure Data Factory or another workflow scheduler.
 
 The current implementation sends each measurement individually because this was explicitly requested in the assignment. In production, I would evaluate batching or streaming depending on throughput, latency and reliability requirements.
